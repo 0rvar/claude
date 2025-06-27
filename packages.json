@@ -1,0 +1,53 @@
+[
+  {
+    "name": "@anthropic-ai/claude-code",
+    "executable": "claude",
+    "path": "@anthropic-ai/claude-code/cli.js",
+    "is_mcp": false,
+    "autoupdate": true
+  },
+  {
+    "name": "mcp-remote",
+    "executable": "mcp-remote",
+    "path": "mcp-remote/dist/proxy.js",
+    "is_mcp": false,
+    "autoupdate": false,
+    "validate": false
+  },
+  {
+    "name": "mcp-remote-client",
+    "executable": "mcp-remote-client",
+    "path": "mcp-remote/dist/client.js",
+    "is_mcp": false,
+    "autoupdate": false,
+    "validate": false
+  },
+  {
+    "name": "@smithery/cli",
+    "executable": "smithery",
+    "path": "@smithery/cli/dist/index.js",
+    "is_mcp": false,
+    "autoupdate": true
+  },
+  {
+    "name": "slite-mcp-server",
+    "executable": "slite-mcp-server",
+    "path": "slite-mcp-server/build/index.js",
+    "is_mcp": false,
+    "autoupdate": false
+  },
+  {
+    "name": "@playwright/mcp",
+    "executable": "playwright-mcp",
+    "path": "@playwright/mcp/cli.js",
+    "is_mcp": true,
+    "autoupdate": true
+  },
+  {
+    "name": "mcp-deepwiki",
+    "executable": "mcp-deepwiki",
+    "path": "mcp-deepwiki/bin/cli.mjs",
+    "is_mcp": true,
+    "autoupdate": true
+  }
+]

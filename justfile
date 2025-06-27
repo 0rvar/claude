@@ -3,11 +3,10 @@ default:
   nix build .
 
 validate:
-  nix run .#claude -- --version
-  nix run .#slite-mcp-server -- --version
-  nix run .#playwright-mcp -- --version
-  nix run .#smithery -- --help
-  nix run .#mcp-deepwiki -- --version
+  bun run validate.ts
+
+install-mcps:
+  bun run install-mcps.ts
 
 install:
   nix profile remove claude && nix profile install .

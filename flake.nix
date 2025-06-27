@@ -7,18 +7,18 @@
     }:
     let
       # Package configuration
-      version = "0.2.18";
+      version = "0.2.19";
       npmDepsHash = "sha256-txTWK+oflhnCjKPorXKJlADP+iwZ2GOLnjVtVS/atAw=";
-      # Define executables and their paths in node_modules
-      executables = {
-        claude = "@anthropic-ai/claude-code/cli.js";
-        mcp-remote = "mcp-remote/dist/proxy.js";
-        mcp-remote-client = "mcp-remote/dist/client.js";
-        slite-mcp-server = "slite-mcp-server/build/index.js";
-        playwright-mcp = "@playwright/mcp/cli.js";
-        smithery = "@smithery/cli/dist/index.js";
-        mcp-deepwiki = "mcp-deepwiki/bin/cli.mjs";
-      };
+
+      # Read package configuration from packages.json
+      packagesConfig = builtins.fromJSON (builtins.readFile ./packages.json);
+      # Convert packages list to executables attrset
+      executables = builtins.listToAttrs (
+        map (pkg: {
+          name = pkg.executable;
+          value = pkg.path;
+        }) packagesConfig
+      );
     in
     flake-utils.lib.eachDefaultSystem (
       system:
@@ -29,6 +29,7 @@
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             nodejs
+            bun
           ];
         };
         packages = {
@@ -39,7 +40,10 @@
             version = version;
             src = ./.;
             npmDepsHash = npmDepsHash;
-            buildInputs = with pkgs; [ bun uv ];
+            buildInputs = with pkgs; [
+              bun
+              uv
+            ];
 
             installPhase = ''
               runHook preInstall
