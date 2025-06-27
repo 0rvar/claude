@@ -4,6 +4,12 @@ set -euo pipefail
 echo "Updating @anthropic-ai/claude-code to latest..."
 npm update @anthropic-ai/claude-code
 
+echo "Updating @smithery/cli to latest..."
+npm update @smithery/cli
+
+echo "Updating @playwright/mcp to latest..."
+npm update @playwright/mcp
+
 echo "Running npm install..."
 npm install
 

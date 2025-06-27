@@ -38,6 +38,7 @@
             version = version;
             src = ./.;
             npmDepsHash = npmDepsHash;
+            buildInputs = with pkgs; [ bun uv ];
 
             installPhase = ''
               runHook preInstall
