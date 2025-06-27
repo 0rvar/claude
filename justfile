@@ -11,7 +11,7 @@ install:
   nix profile remove claude && nix profile install .
 
 update:
-  ./update-claude.sh
+  ./update.sh
   just validate
   git add . && git commit -m "Update Claude version"
   just install

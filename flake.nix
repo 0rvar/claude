@@ -7,8 +7,8 @@
     }:
     let
       # Package configuration
-      version = "0.2.15";
-      npmDepsHash = "sha256-UCX4UYIZ4sxQ5vHpSzKVcT7vBUPEXsBIYWnNc4jicwI=";
+      version = "0.2.16";
+      npmDepsHash = "sha256-kgGpKscPeANEjb7bRB0/1j+9OYUiSykuUaWbQMwqb3U=";
       # Define executables and their paths in node_modules
       executables = {
         claude = "@anthropic-ai/claude-code/cli.js";
@@ -16,6 +16,7 @@
         mcp-remote-client = "mcp-remote/dist/client.js";
         slite-mcp-server = "slite-mcp-server/build/index.js";
         playwright-mcp = "@playwright/mcp/cli.js";
+        smithery = "@smithery/cli/dist/index.js";
       };
     in
     flake-utils.lib.eachDefaultSystem (
