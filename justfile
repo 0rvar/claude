@@ -7,6 +7,7 @@ validate:
   nix run .#slite-mcp-server -- --version
   nix run .#playwright-mcp -- --version
   nix run .#smithery -- --help
+  nix run .#mcp-deepwiki -- --version
 
 install:
   nix profile remove claude && nix profile install .

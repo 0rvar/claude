@@ -7,8 +7,8 @@
     }:
     let
       # Package configuration
-      version = "0.2.17";
-      npmDepsHash = "sha256-Tbt0OBidWRkVL0H9dvkRCCN9WCmpb/HiXCBwOlmyXNU=";
+      version = "0.2.18";
+      npmDepsHash = "sha256-txTWK+oflhnCjKPorXKJlADP+iwZ2GOLnjVtVS/atAw=";
       # Define executables and their paths in node_modules
       executables = {
         claude = "@anthropic-ai/claude-code/cli.js";
@@ -17,6 +17,7 @@
         slite-mcp-server = "slite-mcp-server/build/index.js";
         playwright-mcp = "@playwright/mcp/cli.js";
         smithery = "@smithery/cli/dist/index.js";
+        mcp-deepwiki = "mcp-deepwiki/bin/cli.mjs";
       };
     in
     flake-utils.lib.eachDefaultSystem (

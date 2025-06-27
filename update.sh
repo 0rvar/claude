@@ -10,6 +10,9 @@ npm update @smithery/cli
 echo "Updating @playwright/mcp to latest..."
 npm update @playwright/mcp
 
+echo "Updating mcp-deepwiki to latest..."
+npm update mcp-deepwiki
+
 echo "Running npm install..."
 npm install
 
