@@ -7,8 +7,8 @@
     }:
     let
       # Package configuration
-      version = "0.2.23";
-      npmDepsHash = "sha256-qqodVbY4ookhrjhH0EUSG/70E+4Qhf03JB7o+l/ZmYE=";
+      version = "0.2.24";
+      npmDepsHash = "sha256-y86tzWU/WaWGF9L2Po39yAWbnrjUdRBJ189Oaa6u/Zc=";
 
       # Read package configuration from packages.json
       packagesConfig = builtins.fromJSON (builtins.readFile ./packages.json);

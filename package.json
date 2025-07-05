@@ -4,11 +4,12 @@
   "private": true,
   "dependencies": {
     "@anthropic-ai/claude-code": "*",
+    "@mastra/mcp-docs-server": "^0.13.4",
     "@playwright/mcp": "*",
     "@smithery/cli": "*",
+    "mcp-deepwiki": "*",
     "mcp-remote": "0.1.13",
-    "slite-mcp-server": "1.0.2",
-    "mcp-deepwiki": "*"
+    "slite-mcp-server": "1.0.2"
   },
   "bin": {
     "claude": "./bin/claude.js"

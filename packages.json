@@ -49,5 +49,12 @@
     "path": "mcp-deepwiki/bin/cli.mjs",
     "is_mcp": true,
     "autoupdate": true
+  },
+  {
+    "name": "@mastra/mcp-docs-server",
+    "executable": "mastra-mcp-docs-server",
+    "path": "@mastra/mcp-docs-server/dist/stdio.js",
+    "is_mcp": true,
+    "autoupdate": true
   }
 ]
