@@ -55,6 +55,7 @@
     "executable": "mastra-mcp-docs-server",
     "path": "@mastra/mcp-docs-server/dist/stdio.js",
     "is_mcp": true,
-    "autoupdate": true
+    "autoupdate": true,
+    "validate": false
   }
 ]
