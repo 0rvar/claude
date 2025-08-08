@@ -57,5 +57,12 @@
     "is_mcp": true,
     "autoupdate": true,
     "validate": false
+  },
+  {
+    "name": "@musistudio/claude-code-router",
+    "executable": "ccr",
+    "path": "@musistudio/claude-code-router/dist/cli.js",
+    "is_mcp": false,
+    "autoupdate": true
   }
 ]

@@ -5,6 +5,7 @@
   "dependencies": {
     "@anthropic-ai/claude-code": "*",
     "@mastra/mcp-docs-server": "^0.13.4",
+    "@musistudio/claude-code-router": "*",
     "@playwright/mcp": "*",
     "@smithery/cli": "*",
     "mcp-deepwiki": "*",
