@@ -16,6 +16,14 @@
     "validate": true
   },
   {
+    "name": "@openai/codex",
+    "executable": "codex",
+    "path": "@openai/codex/bin/codex.js",
+    "is_mcp": false,
+    "autoupdate": true,
+    "validate": true
+  },
+  {
     "name": "mcp-remote",
     "executable": "mcp-remote",
     "path": "mcp-remote/dist/proxy.js",

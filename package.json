@@ -5,6 +5,7 @@
   "dependencies": {
     "@anthropic-ai/claude-code": "*",
     "@google/gemini-cli": "*",
+    "@openai/codex": "*",
     "@playwright/mcp": "*",
     "ansi-escapes": "*",
     "mcp-remote": "*",
