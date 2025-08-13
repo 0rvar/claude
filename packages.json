@@ -4,7 +4,16 @@
     "executable": "claude",
     "path": "@anthropic-ai/claude-code/cli.js",
     "is_mcp": false,
-    "autoupdate": true
+    "autoupdate": true,
+    "validate": true
+  },
+  {
+    "name": "@google/gemini-cli",
+    "executable": "gemini",
+    "path": "@google/gemini-cli/dist/index.js",
+    "is_mcp": false,
+    "autoupdate": true,
+    "validate": true
   },
   {
     "name": "mcp-remote",
@@ -23,13 +32,6 @@
     "validate": false
   },
   {
-    "name": "@smithery/cli",
-    "executable": "smithery",
-    "path": "@smithery/cli/dist/index.js",
-    "is_mcp": false,
-    "autoupdate": true
-  },
-  {
     "name": "slite-mcp-server",
     "executable": "slite-mcp-server",
     "path": "slite-mcp-server/build/index.js",
@@ -41,28 +43,6 @@
     "executable": "playwright-mcp",
     "path": "@playwright/mcp/cli.js",
     "is_mcp": true,
-    "autoupdate": true
-  },
-  {
-    "name": "mcp-deepwiki",
-    "executable": "mcp-deepwiki",
-    "path": "mcp-deepwiki/bin/cli.mjs",
-    "is_mcp": true,
-    "autoupdate": true
-  },
-  {
-    "name": "@mastra/mcp-docs-server",
-    "executable": "mastra-mcp-docs-server",
-    "path": "@mastra/mcp-docs-server/dist/stdio.js",
-    "is_mcp": true,
-    "autoupdate": true,
-    "validate": false
-  },
-  {
-    "name": "@musistudio/claude-code-router",
-    "executable": "ccr",
-    "path": "@musistudio/claude-code-router/dist/cli.js",
-    "is_mcp": false,
     "autoupdate": true
   }
 ]

@@ -5,9 +5,6 @@ default:
 validate:
   bun run validate.ts
 
-install-mcps:
-  bun run install-mcps.ts
-
 install:
   nix profile remove claude && nix profile install .
 

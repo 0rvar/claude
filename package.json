@@ -4,13 +4,11 @@
   "private": true,
   "dependencies": {
     "@anthropic-ai/claude-code": "*",
-    "@mastra/mcp-docs-server": "^0.13.4",
-    "@musistudio/claude-code-router": "*",
+    "@google/gemini-cli": "*",
     "@playwright/mcp": "*",
-    "@smithery/cli": "*",
-    "mcp-deepwiki": "*",
-    "mcp-remote": "0.1.13",
-    "slite-mcp-server": "1.0.2"
+    "ansi-escapes": "*",
+    "mcp-remote": "*",
+    "slite-mcp-server": "*"
   },
   "bin": {
     "claude": "./bin/claude.js"
