@@ -18,5 +18,10 @@ echo "Fetching changelog since version $prev_version..."
 echo
 
 # Get all changelog entries until we hit the prev_version
-curl -s https://raw.githubusercontent.com/anthropics/claude-code/refs/heads/main/CHANGELOG.md | sed "/^## $prev_version$/q" | head -n -1 || echo "Could not fetch changelog"
+changelog=$(curl -s https://raw.githubusercontent.com/anthropics/claude-code/refs/heads/main/CHANGELOG.md)
+if [ $? -eq 0 ] && [ -n "$changelog" ]; then
+    echo "$changelog" | sed "/^## $prev_version$/Q"
+else
+    echo "Could not fetch changelog"
+fi
 echo
