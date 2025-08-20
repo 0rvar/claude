@@ -2,7 +2,9 @@
 set -euo pipefail
 
 echo "Updating @anthropic-ai/claude-code to latest..."
+old_claude_version=$(npm list @anthropic-ai/claude-code --depth=0 --json 2>/dev/null | jq -r '.dependencies["@anthropic-ai/claude-code"].version // "unknown"')
 npm update @anthropic-ai/claude-code
+new_claude_version=$(npm list @anthropic-ai/claude-code --depth=0 --json 2>/dev/null | jq -r '.dependencies["@anthropic-ai/claude-code"].version // "unknown"')
 
 echo "Updating @smithery/cli to latest..."
 npm update @smithery/cli
@@ -19,6 +21,15 @@ npm install
 echo "Checking if package-lock.json was modified..."
 if ! git diff --quiet package-lock.json; then
     echo -e "\033[1;32mPackage updated successfully\033[0m"
+
+    echo "Old Claude version: $old_claude_version"
+    echo "New Claude version: $new_claude_version"
+    
+    # Check if Claude was updated and show changelog
+    if [ "$old_claude_version" != "$new_claude_version" ] && [ "$new_claude_version" != "unknown" ]; then
+        echo
+        ./show-claude-changelog.sh "$old_claude_version"
+    fi
 else
     echo
     echo -e "\033[1;32mPackage is already up to date\033[0m"
