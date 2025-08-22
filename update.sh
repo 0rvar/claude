@@ -1,32 +1,45 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "Updating @anthropic-ai/claude-code to latest..."
 old_claude_version=$(npm list @anthropic-ai/claude-code --depth=0 --json 2>/dev/null | jq -r '.dependencies["@anthropic-ai/claude-code"].version // "unknown"')
-npm update @anthropic-ai/claude-code
-new_claude_version=$(npm list @anthropic-ai/claude-code --depth=0 --json 2>/dev/null | jq -r '.dependencies["@anthropic-ai/claude-code"].version // "unknown"')
+# echo "Updating @anthropic-ai/claude-code to latest..."
+# npm update @anthropic-ai/claude-code
 
-echo "Updating @smithery/cli to latest..."
-npm update @smithery/cli
+# echo "Updating @smithery/cli to latest..."
+# npm update @smithery/cli
 
-echo "Updating @playwright/mcp to latest..."
-npm update @playwright/mcp
+# echo "Updating @playwright/mcp to latest..."
+# npm update @playwright/mcp
 
-echo "Updating mcp-deepwiki to latest..."
-npm update mcp-deepwiki
+# echo "Updating mcp-deepwiki to latest..."
+# npm update mcp-deepwiki
+
+# Update all packages that have autoupdate: true in packagess.json
+echo "Updating all packages with autoupdate: true in packages.json..."
+packages=$(jq -r '.[] | select(.autoupdate == true) | .name' packages.json)
+if [ -z "$packages" ]; then
+    echo "No packages found with autoupdate: true"
+    exit 0
+fi
+for package in $packages; do
+    echo "Updating $package..."
+    npm update "$package"
+done
 
 echo "Running npm install..."
 npm install
+
+new_claude_version=$(npm list @anthropic-ai/claude-code --depth=0 --json 2>/dev/null | jq -r '.dependencies["@anthropic-ai/claude-code"].version // "unknown"')
 
 echo "Checking if package-lock.json was modified..."
 if ! git diff --quiet package-lock.json; then
     echo -e "\033[1;32mPackage updated successfully\033[0m"
 
-    echo "Old Claude version: $old_claude_version"
-    echo "New Claude version: $new_claude_version"
     
     # Check if Claude was updated and show changelog
     if [ "$old_claude_version" != "$new_claude_version" ] && [ "$new_claude_version" != "unknown" ]; then
+        echo "Old Claude version: $old_claude_version"
+        echo "New Claude version: $new_claude_version"
         echo
         ./show-claude-changelog.sh "$old_claude_version"
     fi
