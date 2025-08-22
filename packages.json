@@ -1,29 +1,5 @@
 [
   {
-    "name": "@anthropic-ai/claude-code",
-    "executable": "claude",
-    "path": "@anthropic-ai/claude-code/cli.js",
-    "is_mcp": false,
-    "autoupdate": true,
-    "validate": true
-  },
-  {
-    "name": "@google/gemini-cli",
-    "executable": "gemini",
-    "path": "@google/gemini-cli/dist/index.js",
-    "is_mcp": false,
-    "autoupdate": true,
-    "validate": true
-  },
-  {
-    "name": "@openai/codex",
-    "executable": "codex",
-    "path": "@openai/codex/bin/codex.js",
-    "is_mcp": false,
-    "autoupdate": true,
-    "validate": true
-  },
-  {
     "name": "mcp-remote",
     "executable": "mcp-remote",
     "path": "mcp-remote/dist/proxy.js",

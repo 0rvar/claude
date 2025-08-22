@@ -4,11 +4,12 @@
       self,
       nixpkgs,
       flake-utils,
+      ai-tools,
     }:
     let
       # Package configuration
-      version = "0.2.39";
-      npmDepsHash = "sha256-+TBNRjZNsHq7xNfP+08laFzeZEORF9BflYGL7Ohw2ek=";
+      version = "0.3.0";
+      npmDepsHash = "sha256-1Kmy0CFp1ryhxKjKSVroC8Qdf14/FyKXDshoPdSLlhQ=";
 
       # Read package configuration from packages.json
       packagesConfig = builtins.fromJSON (builtins.readFile ./packages.json);
@@ -43,7 +44,12 @@
             buildInputs = with pkgs; [
               bun
               uv
-            ];
+            ] ++ (with ai-tools.packages.${pkgs.system}; [
+              claude-code
+              gemini-cli
+              codex
+              crush
+            ]);
 
             installPhase = ''
               runHook preInstall
@@ -81,5 +87,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    ai-tools.url = "github:numtide/nix-ai-tools";
   };
 }

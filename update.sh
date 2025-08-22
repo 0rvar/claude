@@ -29,10 +29,18 @@ done
 echo "Running npm install..."
 npm install
 
+echo "Updating ai-tools dep"
+flake update ai-tools
+
 new_claude_version=$(npm list @anthropic-ai/claude-code --depth=0 --json 2>/dev/null | jq -r '.dependencies["@anthropic-ai/claude-code"].version // "unknown"')
 
+# Check both package.lock and flake.lock for changes
+PACKAGE_LOCK_DIRTY=$(git diff --quiet package-lock.json; echo $?)
+FLAKE_LOCK_DIRTY=$(git diff --quiet flake.lock; echo $?)
+
+
 echo "Checking if package-lock.json was modified..."
-if ! git diff --quiet package-lock.json; then
+if [ $PACKAGE_LOCK_DIRTY -ne 0 ]; then
     echo -e "\033[1;32mPackage updated successfully\033[0m"
 
     
@@ -43,7 +51,7 @@ if ! git diff --quiet package-lock.json; then
         echo
         ./show-claude-changelog.sh "$old_claude_version"
     fi
-else
+elif [ $FLAKE_LOCK_DIRTY -ne 0 ]; then
     echo
     echo -e "\033[1;32mPackage is already up to date\033[0m"
     echo

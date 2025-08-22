@@ -3,11 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@anthropic-ai/claude-code": "*",
-    "@google/gemini-cli": "*",
-    "@openai/codex": "*",
     "@playwright/mcp": "*",
-    "ansi-escapes": "*",
     "mcp-remote": "*",
     "slite-mcp-server": "*"
   },
