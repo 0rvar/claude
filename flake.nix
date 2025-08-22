@@ -10,6 +10,13 @@
       # Package configuration
       version = "0.3.0";
       npmDepsHash = "sha256-1Kmy0CFp1ryhxKjKSVroC8Qdf14/FyKXDshoPdSLlhQ=";
+      aiToolNames = [
+        "claude-code"
+        "gemini-cli" 
+        "codex"
+        "crush"
+      ];
+
 
       # Read package configuration from packages.json
       packagesConfig = builtins.fromJSON (builtins.readFile ./packages.json);
@@ -25,6 +32,7 @@
       system:
       let
         pkgs = import nixpkgs { inherit system; };
+        aiTools = map (name: ai-tools.packages.${system}.${name}) aiToolNames;
       in
       {
         devShells.default = pkgs.mkShell {
@@ -34,7 +42,12 @@
           ];
         };
         packages = {
-          default = self.packages.${system}.claude-plus-mcp;
+          default = pkgs.symlinkJoin {
+            name = "claude-plus-mcp-with-tools";
+            paths = [
+              self.packages.${system}.claude-plus-mcp
+            ] ++ aiTools;
+          };
 
           claude-plus-mcp = pkgs.buildNpmPackage {
             pname = "claude-plus-mcp";
@@ -44,12 +57,7 @@
             buildInputs = with pkgs; [
               bun
               uv
-            ] ++ (with ai-tools.packages.${pkgs.system}; [
-              claude-code
-              gemini-cli
-              codex
-              crush
-            ]);
+            ];
 
             installPhase = ''
               runHook preInstall
