@@ -1,18 +1,5 @@
 #!/bin/bash
-set -euo pipefail
-
-old_claude_version=$(npm list @anthropic-ai/claude-code --depth=0 --json 2>/dev/null | jq -r '.dependencies["@anthropic-ai/claude-code"].version // "unknown"')
-# echo "Updating @anthropic-ai/claude-code to latest..."
-# npm update @anthropic-ai/claude-code
-
-# echo "Updating @smithery/cli to latest..."
-# npm update @smithery/cli
-
-# echo "Updating @playwright/mcp to latest..."
-# npm update @playwright/mcp
-
-# echo "Updating mcp-deepwiki to latest..."
-# npm update mcp-deepwiki
+set -euxo pipefail
 
 # Update all packages that have autoupdate: true in packagess.json
 echo "Updating all packages with autoupdate: true in packages.json..."
@@ -30,9 +17,7 @@ echo "Running npm install..."
 npm install
 
 echo "Updating ai-tools dep"
-flake update ai-tools
-
-new_claude_version=$(npm list @anthropic-ai/claude-code --depth=0 --json 2>/dev/null | jq -r '.dependencies["@anthropic-ai/claude-code"].version // "unknown"')
+nix flake lock --update-input ai-tools
 
 # Check both package.lock and flake.lock for changes
 PACKAGE_LOCK_DIRTY=$(git diff --quiet package-lock.json; echo $?)
@@ -40,20 +25,8 @@ FLAKE_LOCK_DIRTY=$(git diff --quiet flake.lock; echo $?)
 
 
 echo "Checking if package-lock.json was modified..."
-if [ $PACKAGE_LOCK_DIRTY -ne 0 ]; then
-    echo -e "\033[1;32mPackage updated successfully\033[0m"
-
-    
-    # Check if Claude was updated and show changelog
-    if [ "$old_claude_version" != "$new_claude_version" ] && [ "$new_claude_version" != "unknown" ]; then
-        echo "Old Claude version: $old_claude_version"
-        echo "New Claude version: $new_claude_version"
-        echo
-        ./show-claude-changelog.sh "$old_claude_version"
-    fi
-elif [ $FLAKE_LOCK_DIRTY -ne 0 ]; then
-    echo
-    echo -e "\033[1;32mPackage is already up to date\033[0m"
+if [ $PACKAGE_LOCK_DIRTY -eq 0 && $FLAKE_LOCK_DIRTY -eq 0 ]; then
+    echo -e "\033[1;32mPackages already up to date\033[0m"
     echo
     exit 1
 fi
