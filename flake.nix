@@ -12,11 +12,10 @@
       npmDepsHash = "sha256-KQui4R13/jLODBY/dGGJpBbjgID8zt4UDcGOeTyQUXU=";
       aiToolNames = [
         "claude-code"
-        "gemini-cli" 
+        # "gemini-cli"
         "codex"
-        "crush"
+        # "crush"
       ];
-
 
       # Read package configuration from packages.json
       packagesConfig = builtins.fromJSON (builtins.readFile ./packages.json);
@@ -37,7 +36,7 @@
       {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            nodejs
+            nodejs_24
             bun
           ];
         };
@@ -46,7 +45,8 @@
             name = "claude-plus-mcp-with-tools";
             paths = [
               self.packages.${system}.claude-plus-mcp
-            ] ++ aiTools;
+            ]
+            ++ aiTools;
           };
 
           claude-plus-mcp = pkgs.buildNpmPackage {
@@ -56,7 +56,6 @@
             npmDepsHash = npmDepsHash;
             buildInputs = with pkgs; [
               bun
-              uv
             ];
 
             installPhase = ''
@@ -77,17 +76,16 @@
           };
         };
 
-        apps =
-          {
-            default = self.apps.${system}.claude;
+        apps = {
+          default = self.apps.${system}.claude;
+        }
+        // (pkgs.lib.mapAttrs (
+          name: _:
+          flake-utils.lib.mkApp {
+            drv = self.packages.${system}.claude-plus-mcp;
+            name = name;
           }
-          // (pkgs.lib.mapAttrs (
-            name: _:
-            flake-utils.lib.mkApp {
-              drv = self.packages.${system}.claude-plus-mcp;
-              name = name;
-            }
-          ) executables);
+        ) executables);
       }
     );
 
