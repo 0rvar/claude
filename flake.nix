@@ -8,8 +8,8 @@
     }:
     let
       # Package configuration
-      version = "0.3.22";
-      npmDepsHash = "sha256-L44Ocvcfo+BoD3BMJ1N7PG4xjIh9CJnC5p+FhdSw8To=";
+      version = "0.3.23";
+      npmDepsHash = "sha256-gVj3YEoP5xf6hO4tkb5F55tfHAczMJ+PZrbCOJwWUJ4=";
       aiToolNames = [
         "claude-code"
         # "gemini-cli"
