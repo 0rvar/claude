@@ -8,7 +8,7 @@
     }:
     let
       # Package configuration
-      version = "0.3.29";
+      version = "0.3.30";
       npmDepsHash = "sha256-1vh8waQWQLdIVM+wSKgBpHuiERfNJdrdtzw3yb95sFA=";
       aiToolNames = [
         "claude-code"
