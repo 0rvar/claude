@@ -28,5 +28,12 @@
     "path": "@playwright/mcp/cli.js",
     "is_mcp": true,
     "autoupdate": true
+  },
+  {
+    "name": "@siteboon/claude-code-ui",
+    "executable": "claude-code-ui",
+    "path": "@siteboon/claude-code-ui/server/cli.js",
+    "is_mcp": false,
+    "autoupdate": true
   }
 ]

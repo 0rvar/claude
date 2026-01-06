@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@playwright/mcp": "*",
+    "@siteboon/claude-code-ui": "*",
     "mcp-remote": "*",
     "slite-mcp-server": "*"
   },

@@ -8,8 +8,8 @@
     }:
     let
       # Package configuration
-      version = "0.3.30";
-      npmDepsHash = "sha256-1vh8waQWQLdIVM+wSKgBpHuiERfNJdrdtzw3yb95sFA=";
+      version = "0.3.31";
+      npmDepsHash = "sha256-eVtTDU1rwImBWBtJD9Lk3qKAOhZbB2DKTnR3XI7pUbM=";
       aiToolNames = [
         "claude-code"
         # "gemini-cli"
@@ -54,6 +54,10 @@
             version = version;
             src = ./.;
             npmDepsHash = npmDepsHash;
+            nativeBuildInputs = with pkgs; [
+              python3
+              pkg-config
+            ];
             buildInputs = with pkgs; [
               bun
             ];
