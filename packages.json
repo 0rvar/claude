@@ -35,5 +35,12 @@
     "path": "@siteboon/claude-code-ui/server/cli.js",
     "is_mcp": false,
     "autoupdate": true
+  },
+  {
+    "name": "cui-server",
+    "executable": "cui-server",
+    "path": "cui-server/dist/server.js",
+    "is_mcp": false,
+    "autoupdate": true
   }
 ]

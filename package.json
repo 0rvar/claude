@@ -6,7 +6,8 @@
     "@playwright/mcp": "*",
     "@siteboon/claude-code-ui": "*",
     "mcp-remote": "*",
-    "slite-mcp-server": "*"
+    "slite-mcp-server": "*",
+    "cui-server": "*"
   },
   "bin": {
     "claude": "./bin/claude.js"
