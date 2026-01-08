@@ -41,6 +41,7 @@
     "executable": "cui-server",
     "path": "cui-server/dist/server.js",
     "is_mcp": false,
-    "autoupdate": true
+    "autoupdate": true,
+    "validate": false
   }
 ]
