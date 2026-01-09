@@ -1,5 +1,5 @@
 {
-  "name": "claude-code-wrapper",
+  "name": "llm-tools",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,9 +8,6 @@
     "mcp-remote": "*",
     "slite-mcp-server": "*",
     "cui-server": "*"
-  },
-  "bin": {
-    "claude": "./bin/claude.js"
   },
   "scripts": {
     "build": ""

@@ -6,10 +6,10 @@ validate:
   bun run validate.ts
 
 install:
-  nix profile remove claude && nix profile install .
+  nix profile remove llm-tools && nix profile install .
 
 update:
   ./update.sh
   just validate
-  git add . && git commit -m "Update Claude version"
+  git add . && git commit -m "Update versions"
   just install

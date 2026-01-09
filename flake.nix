@@ -11,9 +11,10 @@
       version = "0.3.33";
       npmDepsHash = "sha256-/qZgEoXT4AagZS5qiXN8x4MhTXmwZfpC8qSK5Pn8MvQ=";
       aiToolNames = [
-        "claude-code"
-        # "gemini-cli"
+        # "claude-code"
+        "gemini-cli"
         "codex"
+        "opencode"
         # "crush"
       ];
 
@@ -42,15 +43,15 @@
         };
         packages = {
           default = pkgs.symlinkJoin {
-            name = "claude-plus-mcp-with-tools";
+            name = "llm-tools";
             paths = [
-              self.packages.${system}.claude-plus-mcp
+              self.packages.${system}.llm-tools
             ]
             ++ aiTools;
           };
 
-          claude-plus-mcp = pkgs.buildNpmPackage {
-            pname = "claude-plus-mcp";
+          llm-tools = pkgs.buildNpmPackage {
+            pname = "llm-tools";
             version = version;
             src = ./.;
             npmDepsHash = npmDepsHash;
@@ -81,19 +82,19 @@
         };
 
         apps = {
-          default = self.apps.${system}.claude;
+          default = self.apps.${system}.llm-tools;
         }
         // (pkgs.lib.mapAttrs (
           name: _:
           flake-utils.lib.mkApp {
-            drv = self.packages.${system}.claude-plus-mcp;
+            drv = self.packages.${system}.llm-tools;
             name = name;
           }
         ) executables);
       }
     );
 
-  description = "Claude code + mcp wrappers";
+  description = "LLM tools packaged with Nix";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";

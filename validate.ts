@@ -36,19 +36,7 @@ function main() {
       console.log(`Skipping validation for ${pkg.name}`);
       continue;
     }
-    let command: string;
-    
-    // Special handling for different executables
-    switch (pkg.executable) {
-      case 'claude':
-        command = `nix run .#${pkg.executable} -- --version`;
-        break;
-      case 'smithery':
-        command = `nix run .#${pkg.executable} -- --help`;
-        break;
-      default:
-        command = `nix run .#${pkg.executable} -- --version`;
-    }
+    const command = `nix run .#${pkg.executable} -- --version`;
     
     const success = runCommand(command);
     if (!success) {

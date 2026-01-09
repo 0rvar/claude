@@ -1,4 +1,4 @@
-# Nix package for Claude Code + mcps
+# Nix package for LLM tools
 
 - To add a new npm package:
   1. Add it to `package.json`.
