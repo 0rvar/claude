@@ -1,5 +1,6 @@
 default:
-  npm install
+  bun install
+  bun2nix -o bun.nix
   nix build .
 
 validate:
