@@ -5,9 +5,10 @@
   "dependencies": {
     "@playwright/mcp": "*",
     "@siteboon/claude-code-ui": "*",
+    "ccusage": "^18.0.5",
+    "cui-server": "*",
     "mcp-remote": "*",
-    "slite-mcp-server": "*",
-    "cui-server": "*"
+    "slite-mcp-server": "*"
   },
   "scripts": {
     "build": ""

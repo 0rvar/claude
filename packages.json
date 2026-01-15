@@ -43,5 +43,12 @@
     "is_mcp": false,
     "autoupdate": true,
     "validate": false
+  },
+  {
+    "name": "ccusage",
+    "executable": "ccusage",
+    "path": "ccusage/dist/index.js",
+    "is_mcp": false,
+    "autoupdate": true
   }
 ]
