@@ -16,11 +16,24 @@ done
 echo "Updating ai-tools dep"
 nix flake lock --update-input ai-tools
 
-# Check both bun.lock and flake.lock for changes
+echo "Updating uv-mcp packages..."
+(cd uv-mcp && uv lock --upgrade)
+
+echo "Regenerating uv-mcp/versions.nix..."
+cat > uv-mcp/versions.nix << 'NIXEOF'
+# Auto-generated from uv.lock - do not edit manually
+# Run update.sh to regenerate
+{
+NIXEOF
+grep -A 2 'name = "awslabs-cloudwatch-mcp-server"' uv-mcp/uv.lock | head -3 | grep 'version' | sed 's/.*"\(.*\)".*/  cloudwatch-mcp-server = "\1";/' >> uv-mcp/versions.nix
+echo "}" >> uv-mcp/versions.nix
+
+# Check bun.lock, flake.lock, and uv-mcp for changes
 BUN_LOCK_DIRTY=$(git diff --quiet -- bun.lock; echo $?)
 FLAKE_LOCK_DIRTY=$(git diff --quiet -- flake.lock; echo $?)
+UV_MCP_DIRTY=$(git diff --quiet -- uv-mcp/; echo $?)
 
-if [ $BUN_LOCK_DIRTY -eq 0 ] && [ $FLAKE_LOCK_DIRTY -eq 0 ]; then
+if [ $BUN_LOCK_DIRTY -eq 0 ] && [ $FLAKE_LOCK_DIRTY -eq 0 ] && [ $UV_MCP_DIRTY -eq 0 ]; then
     echo -e "\033[1;32mPackages already up to date\033[0m"
     exit 1
 fi

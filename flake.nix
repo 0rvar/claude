@@ -9,7 +9,7 @@
     }:
     let
       # Package configuration
-      version = "0.3.37";
+      version = "0.3.38";
       aiToolNames = [
         # "claude-code"
         "gemini-cli"
@@ -27,6 +27,9 @@
           value = pkg.path;
         }) packagesConfig
       );
+
+      # Read uv-mcp versions from uv.lock
+      uvMcpVersions = import ./uv-mcp/versions.nix;
     in
     flake-utils.lib.eachDefaultSystem (
       system:
@@ -37,6 +40,11 @@
         bunDeps = bun2nixPkg.fetchBunDeps {
           bunNix = ./bun.nix;
         };
+
+        # Wrapper for cloudwatch-mcp-server using pinned version from uv.lock
+        cloudwatch-mcp-server = pkgs.writeShellScriptBin "cloudwatch-mcp-server" ''
+          exec ${pkgs.uv}/bin/uvx awslabs.cloudwatch-mcp-server==${uvMcpVersions.cloudwatch-mcp-server} "$@"
+        '';
       in
       {
         devShells.default = pkgs.mkShell {
@@ -44,6 +52,7 @@
             nodejs_24
             bun
             bun2nix.packages.${system}.default
+            uv
           ];
         };
         packages = {
@@ -51,6 +60,7 @@
             name = "llm-tools";
             paths = [
               self.packages.${system}.llm-tools
+              cloudwatch-mcp-server
             ]
             ++ aiTools;
           };
@@ -85,6 +95,8 @@
               runHook postInstall
             '';
           };
+
+          inherit cloudwatch-mcp-server;
         };
 
         apps = {

@@ -1,0 +1,15 @@
+[project]
+name = "uv-mcp"
+version = "0.1.0"
+description = "UV-based MCP servers"
+requires-python = ">=3.10"
+dependencies = [
+    "awslabs-cloudwatch-mcp-server",
+]
+
+[project.scripts]
+cloudwatch-mcp-server = "awslabs.cloudwatch_mcp_server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
