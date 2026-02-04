@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@playwright/mcp": "^0.0.61",
-    "@siteboon/claude-code-ui": "^1.15.0",
+    "@siteboon/claude-code-ui": "^1.16.3",
     "ccusage": "^18.0.5",
     "cui-server": "^0.6.3",
     "mcp-remote": "^0.1.37",
