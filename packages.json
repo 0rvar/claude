@@ -50,5 +50,13 @@
     "path": "ccusage/dist/index.js",
     "is_mcp": false,
     "autoupdate": true
+  },
+  {
+    "name": "slack-mcp-server",
+    "executable": "slack-mcp-server",
+    "path": "slack-mcp-server/bin/index.js",
+    "is_mcp": true,
+    "autoupdate": false,
+    "validate": false
   }
 ]

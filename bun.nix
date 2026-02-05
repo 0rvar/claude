@@ -2777,6 +2777,34 @@
     url = "https://registry.npmjs.org/simple-get/-/simple-get-4.0.1.tgz";
     hash = "sha512-brv7p5WgH0jmQJr1ZDDfKDOSeWWg+OVypG99A/5vYGPqJ6pxiaHLy8nxtFjBA7oMa01ebA9gfh1uMCFqOuXxvA==";
   };
+  "slack-mcp-server-darwin-amd64@1.1.28" = fetchurl {
+    url = "https://registry.npmjs.org/slack-mcp-server-darwin-amd64/-/slack-mcp-server-darwin-amd64-1.1.28.tgz";
+    hash = "sha512-LkaHqobwBzxxYiu6Hh8JDS40DV8tVbRTf0dKDpLMtOUm/pP8MpT07/q5KX21E40aRaxRk94OEeZQwULayOTIdA==";
+  };
+  "slack-mcp-server-darwin-arm64@1.1.28" = fetchurl {
+    url = "https://registry.npmjs.org/slack-mcp-server-darwin-arm64/-/slack-mcp-server-darwin-arm64-1.1.28.tgz";
+    hash = "sha512-GxTrd1WmITIQT9QiRsABMjM6i0TKuQVgKE88ZZwaNi7GeGDivRM6y/PH7+YutYpWkg7sauPPDGHesVcWlD9mNg==";
+  };
+  "slack-mcp-server-linux-amd64@1.1.28" = fetchurl {
+    url = "https://registry.npmjs.org/slack-mcp-server-linux-amd64/-/slack-mcp-server-linux-amd64-1.1.28.tgz";
+    hash = "sha512-s/3nL75gki21HLTyBiYvZ9HD6BCg2pj6kdOqzKvyf5H/iAOHOWp7RcYcgfAOIqYBCw6njbXrmk0tuI0c8z0hGg==";
+  };
+  "slack-mcp-server-linux-arm64@1.1.28" = fetchurl {
+    url = "https://registry.npmjs.org/slack-mcp-server-linux-arm64/-/slack-mcp-server-linux-arm64-1.1.28.tgz";
+    hash = "sha512-ZPBndphpbwG+IGzdykQ3hrot1m2tMIRtcf2Aksfi1T1Pp3p673JzYtrzQhuR357Qf/Io7T0gZPnbnNVVvBkRUg==";
+  };
+  "slack-mcp-server-windows-amd64@1.1.28" = fetchurl {
+    url = "https://registry.npmjs.org/slack-mcp-server-windows-amd64/-/slack-mcp-server-windows-amd64-1.1.28.tgz";
+    hash = "sha512-JjFejxWADpMwsKY3y7g92PxEowuWeCPWmiIxuDtaWCwYa7m8BS3N3uEiNVAqVL0HU/TCb0SE249coMIzvcrKYg==";
+  };
+  "slack-mcp-server-windows-arm64@1.1.28" = fetchurl {
+    url = "https://registry.npmjs.org/slack-mcp-server-windows-arm64/-/slack-mcp-server-windows-arm64-1.1.28.tgz";
+    hash = "sha512-z2AuFpP+9lXk3fb4YjYql6O/yxyFjKHoEaBW8wl9ZBn3tv5npgFDiIi5Ha9w1HaU5Ea9QVWyVlN7HVPPY2F2rg==";
+  };
+  "slack-mcp-server@1.1.28" = fetchurl {
+    url = "https://registry.npmjs.org/slack-mcp-server/-/slack-mcp-server-1.1.28.tgz";
+    hash = "sha512-9aK/HCobVpB241XiirU/8nuyzz/aaaJ+mfRJSMdzR8msHu02g6060vLaHxKjIxRL3eNro7073fXOXmIkeCd3yw==";
+  };
   "slite-mcp-server@1.2.0" = fetchurl {
     url = "https://registry.npmjs.org/slite-mcp-server/-/slite-mcp-server-1.2.0.tgz";
     hash = "sha512-QcJgr+Ju2wmgOCHY9k9Wx2vV1TJvDYWK/M4k4tjtwyaqK+NbUQBKAN7I9QDPzI4sPbuY4rGm7CBYvDOzHjt65g==";
