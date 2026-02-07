@@ -1941,9 +1941,9 @@
     url = "https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz";
     hash = "sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==";
   };
-  "mcp-remote@0.1.37" = fetchurl {
-    url = "https://registry.npmjs.org/mcp-remote/-/mcp-remote-0.1.37.tgz";
-    hash = "sha512-S2h8MdIH7/6CGhJsDhhTIMH9Pxc0NKoQgEWZ5awGYCMf4oFinXL71RmpkYY84fTTqrh60OiGSL+F+ljb9GjD6w==";
+  "mcp-remote@0.1.38" = fetchurl {
+    url = "https://registry.npmjs.org/mcp-remote/-/mcp-remote-0.1.38.tgz";
+    hash = "sha512-w+JU4U3CfG29TawXR4JLNQ9d1Un5nT8AGI65f/juCaqUdF/V6fS7wE4o7xNPbB8X58o46hRXEJgYglQMAKQs4w==";
   };
   "mdast-util-find-and-replace@3.0.2" = fetchurl {
     url = "https://registry.npmjs.org/mdast-util-find-and-replace/-/mdast-util-find-and-replace-3.0.2.tgz";
