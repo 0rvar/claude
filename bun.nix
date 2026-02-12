@@ -629,9 +629,9 @@
     url = "https://registry.npmjs.org/@replit/codemirror-minimap/-/codemirror-minimap-0.5.2.tgz";
     hash = "sha512-eNAtpr0hOG09/5zqAQ5PkgZEb3V/MHi30zentCxiR73r+utR2m9yVMCpBmfsWbb8mWxUWhMGPiHxM5hFtnscQA==";
   };
-  "@siteboon/claude-code-ui@1.16.3" = fetchurl {
-    url = "https://registry.npmjs.org/@siteboon/claude-code-ui/-/claude-code-ui-1.16.3.tgz";
-    hash = "sha512-sjznaSNo13LCMYs7shdG7BYvyg7cMljHl+AJe2sefnQopwBO2F5WvWl/vQIUs5vKq4lhTA9shUc9EhMS0/kWUw==";
+  "@siteboon/claude-code-ui@1.16.4" = fetchurl {
+    url = "https://registry.npmjs.org/@siteboon/claude-code-ui/-/claude-code-ui-1.16.4.tgz";
+    hash = "sha512-HA35qni2UIbXRXeDD0Kngwo6qCkiDHeAJXltRB5ad+0DYhssrLu1Rzo02HqNMqn0DDZjGUb15TNPBI6g8N4yXQ==";
   };
   "@tailwindcss/oxide-linux-x64-gnu@4.1.18" = fetchurl {
     url = "https://registry.npmjs.org/@tailwindcss/oxide-linux-x64-gnu/-/oxide-linux-x64-gnu-4.1.18.tgz";
