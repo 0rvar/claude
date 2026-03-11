@@ -45,6 +45,11 @@
         cloudwatch-mcp-server = pkgs.writeShellScriptBin "cloudwatch-mcp-server" ''
           exec ${pkgs.uv}/bin/uvx awslabs.cloudwatch-mcp-server==${uvMcpVersions.cloudwatch-mcp-server} "$@"
         '';
+
+        google-drive-mcp = import ./mcps/google-drive {
+          inherit pkgs;
+          bun2nix = bun2nixPkg;
+        };
       in
       {
         devShells.default = pkgs.mkShell {
@@ -60,6 +65,7 @@
             name = "llm-tools";
             paths = [
               self.packages.${system}.llm-tools
+              google-drive-mcp
               cloudwatch-mcp-server
             ]
             ++ aiTools;
@@ -97,6 +103,7 @@
           };
 
           inherit cloudwatch-mcp-server;
+          inherit google-drive-mcp;
         };
 
         apps = {

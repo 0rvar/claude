@@ -3,12 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@playwright/mcp": "^0.0.61",
-    "@siteboon/claude-code-ui": "^1.16.4",
     "ccusage": "^18.0.5",
-    "cui-server": "^0.6.3",
-    "mcp-remote": "^0.1.38",
-    "slack-mcp-server": "^1.1.0",
     "slite-mcp-server": "*"
   },
   "scripts": {
