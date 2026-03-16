@@ -57,9 +57,9 @@
     url = "https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz";
     hash = "sha512-+ys997U96po4Kx/ABpBCqhA9EuxJaQWDQg7295H4hBphv3IZg0boBKuwYpt4YXp6MZ5AmZQnU/tyMTlRpaSejg==";
   };
-  "ccusage@18.0.5" = fetchurl {
-    url = "https://registry.npmjs.org/ccusage/-/ccusage-18.0.5.tgz";
-    hash = "sha512-bnZrVbGm5h7hIIOH3FZFaDxKgJLLHhWDWIv7/9M6/O373YM6RAwsG9hxZXA1ep+C2ISiNEX6MYVoXgkoSuFf9Q==";
+  "ccusage@18.0.10" = fetchurl {
+    url = "https://registry.npmjs.org/ccusage/-/ccusage-18.0.10.tgz";
+    hash = "sha512-bVNqaBFLo3lnSV6afiV/wtLselkGQLV4iXltcTRJwoqbDnnutw6ZNliF1CYwpF/7M0xsmXZnExR0CxdDSdT9xg==";
   };
   "combined-stream@1.0.8" = fetchurl {
     url = "https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz";
