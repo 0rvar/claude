@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ccusage": "^18.0.10",
+    "ccusage": "^18.0.11",
     "slite-mcp-server": "*"
   },
   "scripts": {

@@ -9,7 +9,7 @@
     }:
     let
       # Package configuration
-      version = "0.3.43";
+      version = "0.3.44";
       aiToolNames = [
         # "claude-code"
         "gemini-cli"
